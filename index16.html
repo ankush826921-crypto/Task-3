@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ankush Patel — Creative Studio | Portfolio · To-Do · Products</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+/* ===================== PROFESSIONAL THEME ===================== */
+:root{
+  --bg:#020617;
+  --panel:#0f172a;
+  --card:#020617;
+
+  --text:#f8fafc;
+  --muted:#9ca3af;
+
+  --glass:rgba(255,255,255,0.08);
+  --glass-border:rgba(255,255,255,0.14);
+
+  --accent-1:#22d3ee;
+  --accent-2:#3b82f6;
+
+  --radius:14px;
+  --shadow:0 14px 40px rgba(0,0,0,.65);
+
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;margin:0;
+  background:linear-gradient(180deg,#020617,#020617);
+  color:var(--text);
+}
+
+h1,h2,h3{color:#f9fafb;font-weight:700}
+p,span,label{color:var(--text);font-weight:500}
+.muted{color:var(--muted)!important}
+
+/* ===================== TOPBAR ===================== */
+.topbar{
+  position:fixed;top:0;left:0;right:0;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;background:#020617;
+  border-bottom:1px solid var(--glass-border);
+  z-index:1200;
+}
+.logo{
+  width:44px;height:44px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:white;
+  background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+}
+.nav a{padding:8px 14px;border-radius:10px;font-weight:600}
+.nav a:hover{background:var(--glass)}
+
+/* ===================== LAYOUT ===================== */
+.layout{display:flex;min-height:100vh;padding-top:64px}
+.sidebar{
+  width:260px;padding:18px;background:#020617;
+  border-right:1px solid var(--glass-border)
+}
+.sidebar .slink{
+  display:block;padding:10px;border-radius:10px;margin-bottom:6px
+}
+.sidebar .slink:hover{background:var(--glass)}
+@media(max-width:1000px){.sidebar{display:none}}
+
+main{flex:1;padding:28px}
+.container{max-width:1200px;margin:auto;display:flex;flex-direction:column;gap:26px}
+
+/* ===================== HERO ===================== */
+.hero{
+  display:grid;grid-template-columns:1fr 420px;gap:24px;
+  padding:30px;border-radius:18px;
+  background:linear-gradient(180deg,#0f172a,#020617);
+  box-shadow:var(--shadow);
+  border:1px solid var(--glass-border);
+}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+
+.btn{
+  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  color:white;padding:10px 16px;border-radius:10px;
+  border:none;font-weight:700;cursor:pointer
+}
+.ghost{
+  background:transparent;color:var(--text);
+  border:1px solid var(--glass-border);
+  padding:10px 14px;border-radius:10px
+}
+
+.stat{
+  background:#020617;padding:14px;border-radius:12px;
+  border:1px solid var(--glass-border);text-align:center
+}
+
+/* ===================== SECTIONS ===================== */
+section.card{
+  padding:22px;border-radius:14px;
+  background:linear-gradient(180deg,#0f172a,#020617);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow)
+}
+.section-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.project,.card-product{
+  background:#020617;padding:14px;border-radius:12px;
+  border:1px solid var(--glass-border);
+  box-shadow:0 10px 30px rgba(0,0,0,.6)
+}
+.project img,.card-product img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+
+/* ===================== TODO ===================== */
+.input{
+  background:#020617;color:var(--text);
+  border:1px solid var(--glass-border);
+  padding:10px;border-radius:10px
+}
+.todo-item{
+  background:#020617;border:1px solid var(--glass-border);
+  padding:10px;border-radius:10px
+}
+
+/* ===================== PRODUCTS ===================== */
+.products-wrap{display:grid;grid-template-columns:260px 1fr;gap:20px}
+@media(max-width:900px){.products-wrap{grid-template-columns:1fr}}
+.filters-panel{
+  background:#020617;padding:14px;border-radius:12px;
+  border:1px solid var(--glass-border)
+}
+.price{color:var(--accent-1);font-weight:800}
+.add-cart{background:var(--accent-2);border:none;color:white;padding:8px;border-radius:8px}
+
+/* ===================== CART ===================== */
+.cart-drawer{
+  position:fixed;right:20px;bottom:20px;width:340px;
+  background:#020617;border-radius:14px;
+  border:1px solid var(--glass-border);
+  padding:14px;display:none;z-index:2000
+}
+.cart-drawer.show{display:block}
+
+footer{
+  text-align:center;padding:18px;border-radius:12px;
+  background:#020617;border:1px solid var(--glass-border)
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div style="display:flex;gap:12px;align-items:center">
+    <div class="logo">AP</div>
+    <div>
+      <strong>Ankush Patel</strong>
+      <div class="muted" style="font-size:12px">Creative Studio · UI Developer</div>
+    </div>
+  </div>
+  <div class="nav">
+    <a href="#home">Home</a>
+    <a href="#works">Works</a>
+    <a href="#todo">To‑Do</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="slink" href="#home">🏠 Home</a>
+    <a class="slink" href="#works">🖼 Works</a>
+    <a class="slink" href="#todo">📝 To‑Do App</a>
+    <a class="slink" href="#products">🛒 Products</a>
+    <a class="slink" href="#contact">✉ Contact</a>
+    <p class="muted" style="margin-top:18px;font-size:12px">Portfolio demo built by Ankush Patel for UI, JS & frontend showcase.</p>
+  </aside>
+
+  <main>
+    <div class="container">
+
+      <!-- HERO -->
+      <section id="home" class="hero card">
+        <div>
+          <h1>Creative Studio Portfolio</h1>
+          <p class="muted">A complete frontend demo with portfolio, To‑Do app, product filters and cart — built for resume & LinkedIn showcase.</p>
+          <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+            <button class="btn">View Portfolio</button>
+            <button class="ghost">GitHub Demo</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="stat"><strong>Frontend</strong><div class="muted">HTML · CSS · JS</div></div>
+          <div class="stat"><strong>Projects</strong><div class="muted">Portfolio + Apps</div></div>
+          <div class="stat"><strong>Ready</strong><div class="muted">Resume / LinkedIn</div></div>
+        </div>
+      </section>
+
+      <!-- WORKS -->
+      <section id="works" class="card">
+        <h2>Selected Works</h2>
+        <div class="section-grid">
+          <div class="project"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"><h3>UI Concepts</h3><p class="muted">Modern layouts & components</p></div>
+          <div class="project"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97"><h3>Web Experiments</h3><p class="muted">JS interactions & logic</p></div>
+          <div class="project"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6"><h3>Product UI</h3><p class="muted">Cards, filters & carts</p></div>
+        </div>
+      </section>
+
+      <!-- TODO -->
+      <section id="todo" class="card">
+        <h2>To-Do App (LocalStorage)</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input id="todo-input" class="input" placeholder="Add a task and press Enter" />
+          <button id="add-todo" class="btn">Add</button>
+          <select id="todo-filter" class="input" style="max-width:160px">
+            <option value="all">All</option>
+            <option value="active">Active</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+        <div id="todo-list" style="margin-top:14px;display:flex;flex-direction:column;gap:8px"></div>
+        <p class="muted">Demonstrates CRUD operations, filtering and LocalStorage.</p>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section id="products" class="card">
+        <h2>Product Catalogue</h2>
+        <div class="section-grid">
+          <div class="card-product" data-id="1" data-price="120">
+            <img src="https://images.unsplash.com/photo-1518441902110-50f1a36a7a9a">
+            <strong>Smart Headphones</strong>
+            <div class="muted">⭐⭐⭐⭐☆ (4.6)</div>
+            <div class="price">₹120</div>
+            <button class="add-cart">Add to Cart</button>
+          </div>
+          <div class="card-product" data-id="2" data-price="75">
+            <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a">
+            <strong>Art Poster</strong>
+            <div class="muted">⭐⭐⭐⭐⭐ (4.8)</div>
+            <div class="price">₹75</div>
+            <button class="add-cart">Add to Cart</button>
+          </div>
+          <div class="card-product" data-id="3" data-price="48">
+            <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e">
+            <strong>Decor Vase</strong>
+            <div class="muted">⭐⭐⭐⭐☆ (4.5)</div>
+            <div class="price">₹48</div>
+            <button class="add-cart">Add to Cart</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="card">
+        <h2>Contact</h2>
+        <p class="muted">For hiring, collaboration or frontend roles.</p>
+        <button class="btn">Email Me</button>
+      </section>
+
+      <footer class="card">
+        <div class="muted">© Ankush Patel — Frontend Portfolio Demo</div>
+      </footer>
+
+    </div>
+  </main>
+</div>
+
+<div id="toast" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#020617;color:white;padding:10px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.2);display:none;z-index:3000"></div>
+
+<script>
+/* ================= TODO LOGIC ================= */
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
+const input = document.getElementById('todo-input');
+const list = document.getElementById('todo-list');
+const filter = document.getElementById('todo-filter');
+
+document.getElementById('add-todo').onclick = addTodo;
+filter.onchange = renderTodos;
+
+function addTodo(){
+  if(!input.value.trim()) return;
+  todos.push({id:Date.now(), text:input.value, done:false});
+  input.value=''; save();
+}
+
+function toggleTodo(id){
+  todos = todos.map(t=>t.id===id?{...t,done:!t.done}:t);
+  save();
+}
+
+function editTodo(id){
+  const t = todos.find(x=>x.id===id);
+  const txt = prompt('Edit task', t.text);
+  if(txt!==null){ t.text=txt; save(); }
+}
+
+function deleteTodo(id){
+  todos = todos.filter(t=>t.id!==id); save();
+}
+
+function save(){ localStorage.setItem('todos',JSON.stringify(todos)); renderTodos(); }
+
+function renderTodos(){
+  list.innerHTML='';
+  const f = filter.value;
+  todos.filter(t=>f==='all'||(f==='active'&&!t.done)||(f==='completed'&&t.done))
+  .forEach(t=>{
+    const d=document.createElement('div');
+    d.className='todo-item';
+    d.innerHTML=`<input type="checkbox" ${t.done?'checked':''} onchange="toggleTodo(${t.id})"> 
+      <span style="${t.done?'text-decoration:line-through':''}">${t.text}</span>
+      <button onclick="editTodo(${t.id})">✏️</button>
+      <button onclick="deleteTodo(${t.id})">🗑</button>`;
+    list.appendChild(d);
+  });
+}
+renderTodos();
+
+/* ================= CART LOGIC ================= */
+const cart={};
+const toast=document.getElementById('toast');
+
+document.querySelectorAll('.add-cart').forEach(btn=>{
+  btn.onclick=()=>{
+    const card=btn.parentElement;
+    const id=card.dataset.id;
+    cart[id]=(cart[id]||0)+1;
+    btn.animate([{transform:'scale(1)'},{transform:'scale(1.15)'},{transform:'scale(1)'}],{duration:300});
+    showToast('Added to cart');
+  }
+});
+
+function showToast(msg){
+  toast.textContent=msg;
+  toast.style.display='block';
+  setTimeout(()=>toast.style.display='none',1500);
+}
+</script>
+</body>
+</html>
